@@ -6,6 +6,17 @@ function init() {
   var httpRequest;
 }
 
+function createTwitterQuote(quote, quoteAuthor) {
+
+  var tweet = '<a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=';
+  tweet += quote;
+  tweet += ' - ';
+  tweet += quoteAuthor;
+  tweet += '" ';
+  tweet += 'data-size="large">Tweet</a>';
+  document.getElementById('twitterBtn').innerHTML=tweet;
+}
+
 function makeNewRequest() {
   httpRequest = new XMLHttpRequest();
   if(!httpRequest) {
@@ -41,5 +52,6 @@ function getNewQuote(response) {
   var quoteStr = quote + "<br/>" + "-" + quoteAuthor;
 
   document.getElementById("quote").innerHTML=quoteStr;
+  createTwitterQuote(quote, quoteAuthor);
 
 }

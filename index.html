@@ -5,11 +5,34 @@
     <title>My Quote Generator</title>
     <script src="scripts/quote.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>  </head>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+
+   </head>
+
+
   <body>
     <h1>Random Quote Generator</h1>
     <div id="quote">
     </div>
     <input type="button" id="newQuoteBtn" value="Get me a new quote!"/>
+    <div id="twitterBtn"></div>
+    <div id = "twitter-wjs"</div>
   </body>
 </html>
