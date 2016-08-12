@@ -1,4 +1,26 @@
 body {
-  font-family: Lobster;
   text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+  font-family: Lobster;
+}
+
+#quote {
+  font-size: 1.5em;
+}
+
+#newQuoteBtn {
+  margin-top: 1em;
+  font-size: 1.5em;
+
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+}
+
+#newQuoteBtn:active {
+	position:relative;
+	top:1px;
 }

@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', init);
 
 function init() {
+  makeNewRequest();
   document.getElementById('newQuoteBtn').addEventListener('click', makeNewRequest);
   var httpRequest;
 }
@@ -20,18 +21,25 @@ function makeNewRequest() {
 function checkRequestResponse() {
   if (httpRequest.readyState === 4) {
     if (httpRequest.status === 200) {
-     getNewQuote(httpRequest.responseText);
+      var quoteStr = httpRequest.responseText;
+      getNewQuote(quoteStr);
     } else {
      console.error(httpRequest.statusText);
     }
   }
 }
 
-function getNewQuote(response) {
-  console.log(response);
-  var json = JSON.parse(response);
-  var quote = json.quoteText + "<br/>" + "-" + json.quoteAuthor;
 
-  document.getElementById("quote").innerHTML=quote;
+function getNewQuote(response) {
+  var json = JSON.parse(response);
+  var quote = json.quoteText;
+
+  var quoteAuthor = json.quoteAuthor;
+  if(quoteAuthor === '') {
+    quoteAuthor = "Anon."
+  }
+  var quoteStr = quote + "<br/>" + "-" + quoteAuthor;
+
+  document.getElementById("quote").innerHTML=quoteStr;
 
 }
